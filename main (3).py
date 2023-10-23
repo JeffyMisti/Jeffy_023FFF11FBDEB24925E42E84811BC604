@@ -1,21 +1,21 @@
-class Account:
-def_init_(self):
-self.balance=0
-print('Your Account is Created.')
-def deposit(self):
-amount=int(input('Enter the amount to deposit:'))
-self.balance+=amount
-print('Your New Balance =%d' %self.balance)
-def withdraw(self):
-amount=int(input('Enter the amount to withdraw:'))
-if(amount>self.balance):
-print('Insufficient Balance!')
-else:
-self.balance-=amount
-print('Your Remaining Balance =%d' %self.balance)
-def enquiry(self):
-print('Your Balance =%d' %self.balance)
-account= Account()
-account.deposit()
-account.withdraw()
-account.enquiry()
+class Player:
+    def play(self):
+        print("The player is playing cricket.")
+
+# Define the derived class Batsman
+class Batsman(Player):
+    def play(self):
+        print("The batsman is batting.")
+
+# Define the derived class Bowler
+class Bowler(Player):
+    def play(self):
+        print("The bowler is bowling.")
+
+# Create objects of Batsman and Bowler classes
+batsman = Batsman()
+bowler = Bowler()
+
+# Call the play() method for each object
+batsman.play()
+bowler.play()
