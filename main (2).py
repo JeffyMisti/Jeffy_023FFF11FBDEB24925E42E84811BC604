@@ -1,31 +1,24 @@
-class BankAccount:
-  def __init__(self, account_number, account_holder_name, initial_balance=0.0):
-    self.__account_number = account_number
-    self.__account_holder_name = account_holder_name
-    self.__account_balance = initial_balance
-  def deposit(self, amount):
-    if amount > 0:
-      self.__account_balance += amount
-      # self.__account_balance = self.__account_balance+amount
-      print("Deposited ₹{}. New balance: ₹{}".format(amount,
-                                                     self.__account_balance))
-    else:
-      print("Invalid deposit amount.")
-  def withdraw(self, amount):
-    if amount > 0 and amount <= self.__account_balance:
-      self.__account_balance -= amount
-      # self.__account_balance = self.__account_balance - amount
-      print("Withdrew ₹{}. New balance: ₹{}".format(amount,
-                                                    self.__account_balance))
-    else:
-      print("Invalid withdrawal amount or insufficient balance.")
-  def display_balance(self):
-    print("Account balance for {} (Account #{}): ₹{}".format(
-        self.__account_holder_name, self.__account_number,
-        self.__account_balance))
-# Create an instance of the BankAccount class
-account = BankAccount(account_number="123456789",
-                      account_holder_name="Hari Prabu",
-                      initial_balance=5000.0)
-# Test deposit and withdrawal functionality
-account.display_balance()
+def fib():
+  a, b = 0, 1
+  n = int(input('Enter a value to print Fibonacci series:'))
+  while a < n:
+    print(a, end='')
+    a, b = b, a + b
+
+
+print('1.Fibonacci series using function and control flow statements')
+print('2.string manipulations')
+ch = int(input('Enter a option value'))
+if ch == 1:
+  fib()
+elif ch == 2:
+  str1 = input(
+      'Enter a string to find length of string and change capitalize=')
+  print('Given string length is=', len(str1))
+  print('Given string first letter is capital=', str1.capitalize())
+  str2 = "Hello"
+  str3 = input("Enter a string (your name to append a string=")
+  str2 += str3
+  print("Append string is=", str2)
+else:
+  print("wrong option")

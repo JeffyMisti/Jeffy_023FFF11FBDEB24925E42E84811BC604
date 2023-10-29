@@ -1,23 +1,33 @@
 
 
-class account:
-def_init_(self):
-self.balance=0
-print('Your Account is Created.')
-def deposit(self):
-amount=int(input('Enter the amount to deposit:'))
-self.balance+=amount
-print('Your New Balance =%d' %self.balance)
-def withdraw(self):
-amount=int(input('Enter the amount to withdraw:'))
-if(amount>self.balance):
-print('Insufficient Balance!')
-else:
-self.balance-=amount
-print('Your Remaining Balance =%d' %self.balance)
-def enquiry(self):
-print('Your Balance =%d' %self.balance)
-account= Account()
-account.deposit()
-account.withdraw()
-account.enquiry()
+class BankAccount:
+  def __init__(self, account_number, account_holder_name, initial_balance=0.0):
+    self.__account_number = account_number
+    self.__account_holder_name = account_holder_name
+    self.__account_balance = initial_balance
+  def deposit(self, amount):
+    if amount > 0:
+      self.__account_balance += amount
+      # self.__account_balance = self.__account_balance+amount
+      print("Deposited ₹{}. New balance: ₹{}".format(amount,
+                                                     self.__account_balance))
+    else:
+      print("Invalid deposit amount.")
+  def withdraw(self, amount):
+    if amount > 0 and amount <= self.__account_balance:
+      self.__account_balance -= amount
+      # self.__account_balance = self.__account_balance - amount
+      print("Withdrew ₹{}. New balance: ₹{}".format(amount,
+                                                    self.__account_balance))
+    else:
+      print("Invalid withdrawal amount or insufficient balance.")
+  def display_balance(self):
+    print("Account balance for {} (Account #{}): ₹{}".format(
+        self.__account_holder_name, self.__account_number,
+        self.__account_balance))
+# Create an instance of the BankAccount class
+account = BankAccount(account_number="123456789",
+                      account_holder_name="Hari Prabu",
+                      initial_balance=5000.0)
+# Test deposit and withdrawal functionality
+account.display_balance()
